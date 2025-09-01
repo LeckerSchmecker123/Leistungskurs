@@ -33,8 +33,10 @@ public class TypKonversion {
         // b: Die neuen Konstrukte wandeln einen Datentyp in einen anderen Datentyp um, z.B. wandelt das Konstrukt in Zeile 9 b von einem Double in einen Integer um.
         // c: Der Zusammenhang besteht darin, dass beide Datentypen Zahlen darstellen und bei einer Konvertierung von Integer zu Double wird ein höherer Wertebereich und genauigkeit ermöglicht.
         // d: Der Zusammenhang besteht darin, dass ein Character einen als eine ganz Zahl in einem bestimmten Wertebereich ist. Dadurch wird jedes Symbol mit einem Unicode gespeichert und ist so in einen Integer konvertierbar.
-        // e: Der Code hat zur Folge, dass das Programm eine Fehlermeldung in der Ausgabe anzeigt, wodurch der Compiler das Programm nicht mit der Durchführung anfangen lässt.
-        //    Diese Fehlermeldung entsteht dadurch das der Boolean keinen Wert hat der einem Symbol zugeordnet werden kann.
+        //e: Der Code hat zur Folge, dass das Programm eine Fehlermeldung in der Ausgabe anzeigt, wodurch der Compiler das Programm nicht mit der Durchführung anfangen lässt.
+        //  Diese Fehlermeldung entsteht dadurch das der Boolean keinen Wert hat der einem Symbol zugeordnet werden kann.
+
+
 
     }
 }
