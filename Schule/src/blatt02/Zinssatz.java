@@ -10,8 +10,9 @@ public class Zinssatz {
         System.out.println("Was ist der Zinssatz in Prozent?");
         double zinssatz = sc.nextDouble(); // %
 
-        double neuesKapital = altesKapital * (1 + (zinssatz / 100));
+
         double zinsen = (altesKapital * zinssatz) / 100;
+        double neuesKapital = altesKapital + zinsen;
 
         System.out.printf("Altes Kapital: %.2f € %n", altesKapital);
         System.out.println("Zinssatz: " + zinssatz + " %" + "\n");
