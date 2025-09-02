@@ -7,8 +7,8 @@ public class Zinssatz {
      double altes_kapital = 1220.0; // €
      double zinssatz = 2.25; // %
 
-     double neues_kapital = altes_kapital * (1 + (zinssatz / 100));
      double zinsen = (altes_kapital * zinssatz) / 100;
+     double neues_kapital = altes_kapital + zinsen;
 
         System.out.println("Altes kapital: " + altes_kapital + " €");
         System.out.println("Zinssatz: " + zinssatz + " %" + "\n");
