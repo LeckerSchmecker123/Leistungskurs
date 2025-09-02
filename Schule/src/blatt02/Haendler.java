@@ -27,6 +27,6 @@ public class Haendler {
         System.out.println(anz_norm_sd_kar + " normale SD-Karten");
         System.out.println(anz_min_sd_kar + " MiniSD-Karten");
         System.out.println(anz_mic_sd_kar + " MicroSD-Karten");
-        System.out.println("...lautet " + preis_gesamt + " €");
+        System.out.printf("...lautet %.2f €", preis_gesamt);
     }
 }
