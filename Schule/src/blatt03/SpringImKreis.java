@@ -13,9 +13,9 @@ public class SpringImKreis {
         double radius = input.nextDouble();
 
 
-        if  (x*x + y*y < Math.sqrt(radius*radius)) {
+        if  (x*x + y*y < radius) {
             System.out.printf("Der Punkt (%.3f|%.3f) liegt innerhalb Einheitskreis", x, y);
-        } else if (x*x + y*y == Math.sqrt(radius*radius)) {
+        } else if (x*x + y*y == radius) {
             System.out.printf("Der Punkt (%.3f|%.3f) liegt auf Einheitskreis", x, y);
         } else {
             System.out.printf("Der Punkt (%.3f|%.3f) liegt nicht im Einheitskreis", x, y);
