@@ -12,13 +12,13 @@ public class ETF {
         int jahr = 0;
         int monat = 0;
 
-        System.out.println("Wie viel ist ihr Sparbetrag?");
-        double sparbetrag = input.nextDouble(); //€
         double gesamtbetrag = 0; //€
         double anteilETF = 3578.89; //€
         double anteil = 0; //%
 
         while (jahr < jahranzahl) {
+            System.out.println("Wie viel ist ihr Sparbetrag?");
+            double sparbetrag = input.nextDouble(); //€
             jahr++;
             monat = 0;
             while (monat < 12) {
