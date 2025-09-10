@@ -28,13 +28,16 @@ public class Dart {
         while (true) {
             System.out.println("Gebe deine Punktzahl ein (0-180)");
             int wurf = scanner.nextInt();
+            if (wurf > 180) {
+                System.out.println("Sind Sie Gott, oder warum haben Sie mehr als 180 Punkte?");
+                continue;
+            }
             punkte -= wurf;
             if (punkte == 0) {
                 System.out.println("Sie haben alle 501 Punkte runtergeworfen");
                 break;
             } else if (punkte < 0) {
                 punkte += wurf;
-                System.out.println("Ihr wurf hat 0 Punkte überschritten. Ihre Punktzahl: " + punkte);
             }
             System.out.println("Punktzahl: " + punkte);
         }
