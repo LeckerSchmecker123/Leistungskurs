@@ -33,7 +33,16 @@ public class Topfschlagen {
             }  else if (steuerung == 'd') {
                 playery -= 1;
             }
-            int diffx =
+            /*
+            int abstandAlt = 0;
+            int abstandNeu = Math.abs(topfx - playerx) + Math.abs(topfy - playery);
+            if (abstandAlt > abstandNeu) {
+                System.out.println("kalt");
+            } else if (abstandAlt < abstandNeu) {
+                System.out.println("warm");
+            }
+            abstandAlt = abstandNeu;
+             */
         }
     }
 }
