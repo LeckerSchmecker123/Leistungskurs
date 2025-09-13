@@ -8,41 +8,71 @@ public class Topfschlagen {
         Scanner input = new Scanner(System.in);
         Random random = new Random();
 
-        int topfx = random.nextInt(0, 5);
-        int topfy = random.nextInt(0, 5);
+        int topfX = random.nextInt(0, 6);
+        int topfY = random.nextInt(0, 6);
 
-        int startx = 3;
-        int starty = 3;
+        int startX = 3;
+        int startY = 3;
 
-        int playerx = startx;
-        int playery = starty;
+        int playerX = startX;
+        int playerY = startY;
 
+        int altPlayerX = 3;
+        int altPlayerY = 3;
+
+
+        System.out.println(topfX + " " + topfY);
         while (true) {
-            if (topfx == playerx && topfy == playery) {
+            altPlayerX = playerX;
+            altPlayerY = playerY;
+            if (topfX == playerX && topfY == playerY) {
                 System.out.println("Du hast gewonnen");
                 break;
             }
             System.out.println("In welche richtung möchten Sie sich bewegen? (w, a, s, d,)");
             char steuerung = input.next().charAt(0);
             if (steuerung == 'w') {
-                playery += 1;
+                playerY += 1;
+                if (topfY - altPlayerY > topfY - playerY) {
+                    System.out.println("Kalt");
+                }  else if (topfY - altPlayerY < topfY - playerY) {
+                    System.out.println("Warm");
+                }
             } else if (steuerung == 's') {
-                playery -= 1;
+                playerY -= 1;
+                if (topfY - altPlayerY > topfY - playerY) {
+                    System.out.println("Kalt");
+                }  else if (topfY - altPlayerY < topfY - playerY) {
+                    System.out.println("Warm");
+                }
             } else if (steuerung == 'a') {
-                playerx += 1;
+                playerX += 1;
+                if  (topfX - altPlayerX > topfX - playerX) {
+                    System.out.println("Kalt");
+                } else if (topfX - altPlayerX < topfX -  playerX) {
+                    System.out.println("Warm");
+                }
             }  else if (steuerung == 'd') {
-                playery -= 1;
+                playerX -= 1;
+                if  (topfX - altPlayerX > topfX - playerX) {
+                    System.out.println("Kalt");
+                } else if (topfX - altPlayerX < topfX -  playerX) {
+                    System.out.println("Warm");
+                }
             }
-            /*
-            int abstandAlt = 0;
-            int abstandNeu = Math.abs(topfx - playerx) + Math.abs(topfy - playery);
-            if (abstandAlt > abstandNeu) {
-                System.out.println("kalt");
-            } else if (abstandAlt < abstandNeu) {
-                System.out.println("warm");
+            if (playerX == -1) {
+                System.out.println("Hier ist der Suchbereich zu ende!");
+                playerX += 1;
+            } else if (playerX == 6) {
+                System.out.println("Hier ist der Suchbereich zu ende!");
+                playerX -= 1;
+            } else if (playerY == -1) {
+                System.out.println("Hier ist der Suchbereich zu ende!");
+                playerY += 1;
+            } else if (playerY == 6) {
+                System.out.println("Hier ist der Suchbereich zu ende!");
+                playerY -= 1;
             }
-            abstandAlt = abstandNeu;
-             */
         }
     }
 }
