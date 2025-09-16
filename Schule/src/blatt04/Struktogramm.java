@@ -10,12 +10,11 @@ public class Struktogramm {
         int punkteTotal = 0;
         int wurf1Punkte = 0;
         int wurf2Punkte = 0;
-        int runde = 0;
+        int runde = 1;
         int multiplyer = 1;
         int wurf = 0;
 
         while (true) {
-            runde ++;
             System.out.println("Runde: " + runde);
             System.out.println("Wie viele Pins hast du beim ersten Wurf getroffen?");
             wurf1Punkte = input.nextInt();
@@ -27,6 +26,7 @@ public class Struktogramm {
                 multiplyer ++;
                 punkteTotal = (wurf1Punkte + wurf2Punkte) * multiplyer;
                 System.out.println("Deine Punktzahl: " +  punkteTotal + "\n");
+                runde++;
                 continue;
             }
             System.out.println("Wie viele Punkte hast du beim zweiten Wurf getroffen?");
@@ -40,6 +40,7 @@ public class Struktogramm {
                 multiplyer ++;
                 punkteTotal = (wurf1Punkte + wurf2Punkte) * multiplyer;
                 System.out.println("Deine Punktzahl: " + punkteTotal + "\n");
+                runde++ ;
                 continue;
             }
             punkteTotal = wurf1Punkte + wurf2Punkte;
@@ -58,6 +59,7 @@ public class Struktogramm {
                 System.out.println("Das Spiel ist vorbei");
                 break;
             }
+            runde++;
         }
     }
 }
