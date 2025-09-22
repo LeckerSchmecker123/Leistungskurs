@@ -6,60 +6,63 @@ public class Struktogramm {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        int maximalPunkte = 270;
-        int punkteTotal = 0;
-        int wurf1Punkte = 0;
-        int wurf2Punkte = 0;
-        int runde = 1;
-        int multiplyer = 1;
-        int wurf = 0;
+        int frames = 0;
+        int punkte = 0;
+        int pins;
+        int wurf;
+        int multiplyer = 0;
+        int treffer;
+        int multi;
 
-        while (true) {
-            System.out.println("Runde: " + runde);
-            System.out.println("Wie viele Pins hast du beim ersten Wurf getroffen?");
-            wurf1Punkte = input.nextInt();
-            if (wurf1Punkte < 0 || wurf1Punkte > 10) {
-                continue;
-            }
-            wurf ++;
-            if (wurf1Punkte == 10 && wurf == 1) {
-                multiplyer ++;
-                punkteTotal = (wurf1Punkte + wurf2Punkte) * multiplyer;
-                System.out.println("Deine Punktzahl: " +  punkteTotal + "\n");
-                runde++;
-                continue;
-            }
-            System.out.println("Wie viele Punkte hast du beim zweiten Wurf getroffen?");
-            wurf2Punkte = input.nextInt();
-            while (wurf2Punkte < 0 || wurf2Punkte > 10 - wurf1Punkte) {
-                System.out.println("Wie viele Punkte hast du beim zweiten Wurf?");
-                wurf2Punkte = input.nextInt();
-            }
-            wurf ++;
-            if (wurf1Punkte + wurf2Punkte == 10 && wurf == 2) {
-                multiplyer ++;
-                punkteTotal = (wurf1Punkte + wurf2Punkte) * multiplyer;
-                System.out.println("Deine Punktzahl: " + punkteTotal + "\n");
-                runde++ ;
-                continue;
-            }
-            punkteTotal = wurf1Punkte + wurf2Punkte;
-            System.out.println("Deine Punktzahl: " + punkteTotal + "\n");
-            multiplyer = 1;
+        while (frames < 11) {
+            if (frames != 10) {
+                System.out.println("\n-- Frame " + (frames + 1) + " --");
+            }             pins = 10;
             wurf = 0;
-
-            if (punkteTotal > maximalPunkte) {
-                System.out.println("Du hast du maximal Punktzahl überschritten");
-            } else if (punkteTotal == maximalPunkte) {
-                System.out.println("Gewonnen!");
-                break;
+            if (frames == 10) {
+                wurf++;
             }
-
-            if (runde == 10) {
-                System.out.println("Das Spiel ist vorbei");
-                break;
+            while (wurf < 2) {
+                if (multiplyer > 0) {
+                    multiplyer--;
+                    multi = 2;
+                    if (multiplyer >= 3) {
+                        multiplyer -= 2;
+                        multi++;
+                    }
+                }
+                else {
+                    multi = 1;
+                }
+                if (frames == 10) {
+                    System.out.println("Wurf 3: Wieviele Pins haben Sie diesen Wurf umgeworfen? (0-10)");
+                }
+                else {
+                    System.out.println("Wurf " + (wurf + 1) + ": Wieviele Pins haben Sie diesen Wurf umgeworfen? (0-10)");
+                }
+                treffer = input.nextInt();
+                if (treffer < 0 || treffer > 10) {
+                    System.out.println("Bitte geben Sie eine ganze Zahl zwischen 0 und 10 ein.");
+                    treffer = input.nextInt();
+                }
+                pins -= treffer;
+                if (pins == 0 && wurf == 0) {
+                    multiplyer += 3;
+                    wurf++;
+                }
+                else if (pins == 0 && wurf == 1) {
+                    multiplyer = 2;
+                }
+                punkte += treffer *  multi;
+                wurf++;
             }
-            runde++;
+            if (frames != 10) {
+                System.out.println("Punkte: " + punkte);
+            }
+            frames++;
+        }
+        System.out.println("------------------------");
+        System.out.println(" Erreichte Punkte: " + punkte);
+        System.out.println("------------------------");
         }
     }
-}
