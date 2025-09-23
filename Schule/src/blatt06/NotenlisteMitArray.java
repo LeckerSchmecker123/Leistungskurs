@@ -5,7 +5,18 @@ import java.util.Scanner;
 public class NotenlisteMitArray {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        int[] noten = new int[10];
+
+        System.out.println("Wie viele Noten möchten Sie eingeben?");
+        int anzahlNoten = input.nextInt();
+        if (anzahlNoten == 0) {
+            System.exit(0);
+        }
+        while (anzahlNoten < 0) {
+            System.out.println("Wie viele Noten möchten Sie eingeben?");
+            anzahlNoten = input.nextInt();
+        }
+
+        int[] noten = new int[anzahlNoten];
         /*
         noten[0] = 2;
         noten[1] = 2;
@@ -20,12 +31,37 @@ public class NotenlisteMitArray {
          */
 
         for (int i = 0; i < 10; i++) {
-            System.out.println("Geben sie eine Note ein");
+            System.out.println("Geben Sie eine Note ein");
             noten[i] = input.nextInt();
+            while (noten[i] < 0 || noten[i] > 6) {
+                System.out.println("Geben Sie eine Note ein");
+                noten[i] = input.nextInt();
+            }
         }
 
-        for (int i = 0; i <= noten.length - 1; i++) {
+        //Ausgabe für die Noten bei jedem Index
+        System.out.println("\nNotenausgabe:");
+        for (int i = 0; i <= noten.length -1; i++) {
             System.out.println("Note von Index " + i + ": " + noten[i]);
         }
+
+        //Ausgabe für die Noten bei jedem Index (rückwärts)
+        System.out.println("\nNotenausgabe (rückwärts):");
+        for (int i = 9; i >= 0; i--) {
+            System.out.println("Note von Index " + i + ": " + noten[i]);
+        }
+
+        //Ausgabe für den Notendurchschnitt
+        int summe = 0;
+
+        //alle Noten werden addiert
+        for (int i = 0; i < noten.length; i++) {
+            summe += noten[i];
+        }
+
+        //Summe wird in einen double umgerechnet und mit der Noten Anzahl verrechnet
+        double durchschnittNoten = (double) summe / noten.length;
+
+        System.out.println("\nDer Notendurchschnitt ist: " + durchschnittNoten);
     }
 }
