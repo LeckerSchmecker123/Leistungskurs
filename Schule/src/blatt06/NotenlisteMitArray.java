@@ -47,7 +47,7 @@ public class NotenlisteMitArray {
 
         //Ausgabe für die Noten bei jedem Index (rückwärts)
         System.out.println("\nNotenausgabe (rückwärts):");
-        for (int i = 9; i >= 0; i--) {
+        for (int i = noten.length - 1; i >= 0; i--) {
             System.out.println("Note von Index " + i + ": " + noten[i]);
         }
 

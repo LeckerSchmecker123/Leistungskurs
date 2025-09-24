@@ -32,6 +32,6 @@ public class OperationenMitArrays {
         for (int i = auftrag.length; i >= 0; i--) {
             auftrag[i] = auftrag[i];
         }
-         */
+        */
     }
 }
