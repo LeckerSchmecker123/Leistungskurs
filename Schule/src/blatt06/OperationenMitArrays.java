@@ -21,17 +21,23 @@ public class OperationenMitArrays {
         System.out.println("\nDies ist die Gesamtsumme der Aufträge");
         System.out.println(summe + " €");
 
-        System.out.println("\nDies sind alle Aufträge mti einem Wert über 15000€");
+        System.out.println("\nDies sind alle Aufträge mit einem Wert über 15000€");
         for (int i = 0; i < auftrag.length; i++) {
             if (auftrag[i] >= 15000) {
                 System.out.println((i + 1) + ": " + auftrag[i] + " €");
             }
         }
+
         /*
         int zwischenSpeicher2 = auftrag[0];
-        for (int i = auftrag.length; i >= 0; i--) {
-            auftrag[i] = auftrag[i];
+        for (int i = auftrag.length - 1; i >= 0; i--) {
+            auftrag[i + 1] = auftrag[i];
         }
-        */
+        auftrag[12] = zwischenSpeicher2;
+
+        for (int i = 0; i < auftrag.length; i++) {
+            System.out.println(auftrag[i] + " €");
+         }
+         */
     }
 }
