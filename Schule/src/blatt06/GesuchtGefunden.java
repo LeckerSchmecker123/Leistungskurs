@@ -40,6 +40,6 @@ public class GesuchtGefunden {
                 kleinstePaardifferenz = arr[i + 1] - arr[i];
             }
         }
-        System.out.printf("%nDie kleinste Paardifferenz hat den Wert %.2f! %n", kleinstePaardifferenz);
+        System.out.printf("%nDie kleinste Paardifferenz hat den Wert %.2f!", kleinstePaardifferenz);
     }
 }
