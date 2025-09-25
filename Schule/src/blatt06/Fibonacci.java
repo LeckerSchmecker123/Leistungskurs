@@ -9,9 +9,11 @@ public class Fibonacci {
         System.out.println("Geben Sie eine Länge an (Ganzzahl)");
         int n =  input.nextInt();
 
-        if (n <= 2) {
-            System.out.println("Die Länge muss größer als 2 sein!");
-            System.exit(0);
+
+        while (n <= 2) {
+            System.out.println("Die angegebene Länge muss größer als 2 sein");
+            System.out.println("Geben Sie eine Länge an (Ganzzahl)");
+            n =  input.nextInt();
         }
 
         int [] fibonacci = new int[n];
