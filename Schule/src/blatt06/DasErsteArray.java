@@ -8,7 +8,7 @@ public class DasErsteArray {
         //Ausgabe des Index mit jeweiligem Wert
         for (int i = 0; i <= index.length - 1; i++) {
             index[i] = a + i;
-            System.out.println("Index " + i + "hat den Wert: " + index[i]);
+            System.out.println("Index " + i + " hat den Wert: " + index[i]);
         }
 
         System.out.println("\n");
@@ -16,7 +16,7 @@ public class DasErsteArray {
         //Ausgabe des Index mit jeweiligem Wert (rückwärts)
         for (int i = index.length - 1; i >= 0; i--) {
             index[i] = a + i;
-            System.out.println("Index " + i + "hat den Wert: " + index[i]);
+            System.out.println("Index " + i + " hat den Wert: " + index[i]);
         }
     }
 }
