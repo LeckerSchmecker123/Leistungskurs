@@ -48,10 +48,10 @@ public class Rechner {
     }
 
     /**
-     * Die Prozedur
-     * @param a
-     * @param b
-     * @return
+     * Die Prozedur dividiert zwei Zahlen und gibt diese aus
+     * @param a Zahl 1
+     * @param b Zahl 2
+     * @return ausgabe
      */
     public static int div (int a,int b) {
         int quotient = a / b;
@@ -59,6 +59,11 @@ public class Rechner {
     }
 
     public static void main (String[] args) {
+
         operation (1,2);
+        System.out.println(add(1,2));
+        System.out.println(sub(1,2));
+        System.out.println(mult(1,2));
+        System.out.println(div(1,2));
     }
 }
