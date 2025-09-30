@@ -12,6 +12,10 @@ public class Rechner {
         System.out.println("Differenz: " + (a - b));
         System.out.println("Produkt: " + (a * b));
         System.out.println("Quotient: " + (a / b));
+        System.out.println(add(a, b));
+        System.out.println(sub(a, b));
+        System.out.println(mult(a, b));
+        System.out.println(div(a, b));
     }
 
     /**
