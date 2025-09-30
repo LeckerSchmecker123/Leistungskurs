@@ -1,5 +1,7 @@
 package blatt07;
 
+import java.util.Arrays;
+
 public class ArbeitMitArrays {
 
     /**
@@ -96,6 +98,46 @@ public class ArbeitMitArrays {
         return true;
     }
 
+    public static int addieren (int [] arr1, int [] arr2) {
+        System.out.print("[ ");
+        for (int i = 0; i <= arr1.length - 1; i++) {
+            if (i == arr1.length - 1) {
+                System.out.print(arr1[i]);
+            } else {
+                System.out.print(arr1[i] + " | ");
+            }
+        }
+        System.out.println(" ]");
+
+        System.out.print("[ ");
+        for (int i = 0; i <= arr2.length - 1; i++) {
+            if (i == arr2.length - 1) {
+                System.out.print(arr2[i]);
+            } else {
+                System.out.print(arr2[i] + " | ");
+            }
+        }
+        System.out.println(" ]");
+
+        int length = 0; //TODO: länge fixen (fehlermeldung bei nicht gleich langem Array)
+        if (arr1.length > arr2.length) {
+            length = arr1.length;
+        } else if (arr2.length > arr1.length) {
+            length = arr2.length;
+        } else  {
+            length = arr1.length;
+        }
+        int [] newArr = new int[length];
+
+        System.out.print("[ "); // TODO: ausgabe schön machen
+        for (int i = 0; i <= newArr.length; i++) { //TODO: Array richtig befüllen
+            newArr[i] = arr1[i] +  arr2[i];
+            System.out.print(" " + newArr[i]);
+        }
+        System.out.println("");
+        return 0; // TODO: richtiges return angeben
+    }
+
     public static void main (String[]args){
         System.out.println("Integer:");
         int [] inte = new int [] {1, 8, 7, 2, 2, 22};
@@ -115,5 +157,9 @@ public class ArbeitMitArrays {
         System.out.println("Ist das Array Sortiert?");
         int [] sort = new int [] {1, 2, 3, 8, 5, 6, 7, 8, 9};
         System.out.println(istSortiert(sort));
+        System.out.println("Die zwei angegebenen Arrays addiert sieht so aus:");
+        int [] arr1 = new int [] {1, 2, 3, 4, 5, 6};
+        int [] arr2 = new int [] {1, 2, 3, 4, 5, 6};
+        System.out.println(addieren(arr1, arr2));
     }
 }
