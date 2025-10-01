@@ -1,5 +1,7 @@
 package blatt07;
 
+import java.util.Scanner;
+
 public class Rechner {
 
     /**
@@ -63,11 +65,16 @@ public class Rechner {
     }
 
     public static void main (String[] args) {
+        Scanner input = new Scanner(System.in);
 
-        operation (1,2);
-        System.out.println(add(1,2));
-        System.out.println(sub(1,2));
-        System.out.println(mult(1,2));
-        System.out.println(div(1,2));
+        System.out.println("Bitte geben Sie zwei Zahlen ein:");
+        int a = input.nextInt();
+        int b = input.nextInt();
+
+        operation (a, b);
+        System.out.println(add(a, b));
+        System.out.println(sub(a, b));
+        System.out.println(mult(a, b));
+        System.out.println(div(a, b));
     }
 }
