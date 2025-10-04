@@ -12,8 +12,8 @@ public class SuchenUndErsetzen {
      * @return ausgabe der Wort(e) mit dem neuen Buchstaben
      */
     public static String ersetzen (String str, String ersetzen, String ersatz) {
-        char[] ersetzenKlein = ersetzen.toCharArray();
-        char[] ersatzKlein = ersatz.toCharArray();
+        char [] ersetzenKlein = ersetzen.toCharArray();
+        char [] ersatzKlein = ersatz.toCharArray();
 
         ersetzen = ersetzen.toUpperCase();
         ersatz = ersatz.toUpperCase();
