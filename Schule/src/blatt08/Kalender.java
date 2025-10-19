@@ -91,7 +91,11 @@ public class Kalender {
         return datum;
     }
 
-    //TODO: Wenn 31. gibt es probleme
+    /**
+     * Die Prozedur gibt den nächsten Tag aus
+     * @param datum Zahl (String)
+     * @return Ausgabe (String)
+     */
     public static String naechsterTag (String datum) {
         int tag = getTag(datum);
         int monat = getMonat(datum);
@@ -128,6 +132,6 @@ public class Kalender {
         System.out.println("\nDas Datum zusammengebaut:");
         System.out.println(zuDatum(11, 2,2025));
         System.out.println("\nNächster Tag:");
-        System.out.println(naechsterTag("30.11.2025"));
+        System.out.println(naechsterTag("27.12.2024"));
     }
 }
