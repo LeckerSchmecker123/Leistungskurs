@@ -45,6 +45,11 @@ public class Teiler {
         return anzahl;
     }
 
+    /**
+     * Die Prozedur gibt alle Teiler einer Zahl aus
+     * @param zahl Zahl 1
+     * @return Ausgabe aller Teiler (Array)
+     */
     public static int[] teiler (int zahl) {
         int anzahl = anzahlTeiler(zahl);
         int[] teilerListe = new int[anzahl];
@@ -68,7 +73,7 @@ public class Teiler {
         System.out.println("Anzahl der Teiler:");
         System.out.println(anzahlTeiler(2));
         System.out.println("Teilerliste:");
-        int [] liste = teiler(2);
+        int [] liste = teiler(6);
         for (int t : liste) {
             System.out.print(t + " ");
         }
