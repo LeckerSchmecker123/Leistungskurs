@@ -10,8 +10,8 @@ public class Kuerzen {
      */
     public static boolean istKuerzbar(int z, int n) {
 
-        int [] zListe = Teiler.teiler(z);
-        int [] nListe = Teiler.teiler(n);
+        int[] zListe = Teiler.teiler(z);
+        int[] nListe = Teiler.teiler(n);
 
         int l = 0;
 
@@ -29,12 +29,31 @@ public class Kuerzen {
         return false;
     }
 
+    /**
+     * Die Prozedur kürzt einen Bruch so weit es möglich ist
+     * @param z Zähler
+     * @param n Nenner
+     */
     public static void kuerzen(int z, int n) {
-        //TODO: Die aufgabe halt machen
+        int a = z;
+        int b = n;
+
+        while (b != 0) {
+            int rest = a % b;
+            a = b;
+            b = rest;
+        }
+        int ggt = a;
+
+        z = z /ggt;
+        n = n / ggt;
+
+        System.out.println("Gekürzter Bruch: " + z + "/" + n);
     }
 
     public static void main(String[] args) {
         System.out.println("istKuerzbar:");
         System.out.println(istKuerzbar(4,2));
+        kuerzen(5,6);
     }
 }
