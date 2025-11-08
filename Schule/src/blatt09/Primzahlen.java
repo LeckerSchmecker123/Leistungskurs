@@ -58,6 +58,10 @@ public class Primzahlen {
         return primzahlen;
     }
 
+    /**
+     * Die Prozedur führt eine Primfaktorzerlegung durch
+     * @param zahl Zahl die zerlegt wird
+     */
     public static void primfaktorzerlegung(int zahl) {
         System.out.print(zahl + " = ");
         int teiler = 2;
