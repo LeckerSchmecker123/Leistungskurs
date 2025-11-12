@@ -14,16 +14,22 @@ public class BinaereSuche {
     public static boolean binaerSuchen(int[] arr, int n) {
         int l = 0;
         int r = arr.length -1;
+        operationen++;
         int m = (l+r)/2;
+        operationen += 2;
 
         while (r - l > 1) {
+            operationen++;
+            bedingungen += 2;
             if (arr[m] > n) {
                 r = m;
-            } else if (arr[m] <= n) {
+            } else {
                 l = m;
             }
             m = (l+r)/2;
+            operationen += 2;
         }
+        bedingungen++;
         if (arr[m] == n) {
             return true;
         }
