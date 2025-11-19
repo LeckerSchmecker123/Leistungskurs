@@ -21,6 +21,22 @@ public class ArbeitMitArrays {
     }
 
     /**
+     * Die Prozedur gibt den jeweiligen Wert aller Elemente eines Arrays als Integer aus
+     * @param index angegebenes Array
+     */
+    public static void printArray (byte [] index) {
+        System.out.print("[ ");
+        for (int i = 0; i <= index.length - 1; i++) {
+            if (i == index.length - 1) {
+                System.out.print(index[i]);
+            } else {
+                System.out.print(index[i] + " | ");
+            }
+        }
+        System.out.println(" ]");
+    }
+
+    /**
      * Die Prozedur gibt den jeweiligen Wert aller Elemente eines Arrays als Double aus
      * @param index angegebenes Array
      */
