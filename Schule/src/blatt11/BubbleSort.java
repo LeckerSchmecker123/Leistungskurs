@@ -17,6 +17,10 @@ public class BubbleSort {
         arr[j] = temp;
     }
 
+    /**
+     * Die Prozedur sortiert einen Array nach dem Bubblesort prinzip
+     * @param arr zu sortierendes Array
+     */
     public static void bubbleSort(int [] arr) {
         int n = arr.length;
         for (int i = 0; i < n - 1; i++) {
