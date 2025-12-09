@@ -10,6 +10,7 @@ public class MultiArrays {
         for (int i = 0; i < arr.length; i++) {
             blatt07.ArbeitMitArrays.printArray(arr[i]);
         }
+        System.out.println();
     }
 
     /**
@@ -20,6 +21,7 @@ public class MultiArrays {
         for (int i = 0; i < arr.length; i++) {
             blatt07.ArbeitMitArrays.printArray(arr[i]);
         }
+        System.out.println();
     }
 
     /**
@@ -30,6 +32,7 @@ public class MultiArrays {
         for (int i = 0; i < arr.length; i++) {
             blatt07.ArbeitMitArrays.printArray(arr[i]);
         }
+        System.out.println();
     }
 
     /**
@@ -100,7 +103,16 @@ public class MultiArrays {
         return arr;
     }
 
+    /**
+     * Die Funktion überprüft, ob zwei übergebene 2D-Character-Arrays identisch sind
+     * @param arr1 1. 2D-Array
+     * @param arr2 2. 2D-Array
+     * @return true, wenn identisch, wenn nicht identisch dann false
+     */
     public static boolean istIdentisch (char[][] arr1, char[][] arr2) {
+        if (arr1.length != arr2.length) {
+            return false;
+        }
         for (int i = 0; i < arr1.length; i++) {
             for (int j = 0; j < arr1[i].length; j++) {
                 if (arr1[i][j] != arr2[i][j]) {
@@ -109,7 +121,16 @@ public class MultiArrays {
             }
         }
         return true;
-        //TODO: Noch nicht fertig
+    }
+
+    public static char[][] copy2DCharArray (char[][] og) {
+        char[][] copy = new char[og.length][og[0].length];
+        for (int i = 0; i < og.length; i++) {
+            for (int j = 0; j < og[i].length; j++) {
+                copy[i][j] = og[i][j];
+            }
+        }
+        return copy;
     }
 
     public static void main(String[] args) {
@@ -135,5 +156,19 @@ public class MultiArrays {
         System.out.println("Leerzeichen Array: ");
         char[][] emptyChar= createEmpty2DArray(10, 5);
         print2DArray(emptyChar);
+        System.out.println("Ist Identisch?:");
+        char[][] charr1 = {{'a', 'b', 'c', 'd', 'e', 'f'}, {'a', 'b', 'c', 'd', 'e', 'f'}};
+        char[][] charr2 = {{'a', 'b', 'c', 'd', 'e', 'f'}, {'a', 'b', 'c', 'd', 'e', 'f'}};
+        print2DArray(charr1);
+        print2DArray(charr2);
+        System.out.println(istIdentisch(charr1, charr2));
+        System.out.println("Kopiertes 2D-Character-Array:");
+        char[][] og = {{'a', 'n', 'c', 'd'},{'a', 'n', 'c', 'd'}};
+        print2DArray(og);
+        char[][] copy = copy2DCharArray(og);
+        print2DArray(copy);
+        og[1][1] = 'f';
+        print2DArray(copy);
+        print2DArray(og);
     }
 }
