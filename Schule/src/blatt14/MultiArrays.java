@@ -123,6 +123,11 @@ public class MultiArrays {
         return true;
     }
 
+    /**
+     * Die Funktion kopiert einen 2D-Character-Array
+     * @param og zu kopierender Array (original Array)
+     * @return ausgabe des kopierten Arrays
+     */
     public static char[][] copy2DCharArray (char[][] og) {
         char[][] copy = new char[og.length][og[0].length];
         for (int i = 0; i < og.length; i++) {
