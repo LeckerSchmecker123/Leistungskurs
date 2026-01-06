@@ -62,6 +62,14 @@ public class Simulationen {
         }
     }
 
+    /**
+     * Die funktionen übergibt den Character nördlich des angegebenen Feldes
+     * @param charr 2D-Character Array (Gesamtes Feld)
+     * @param x x-Koordinate
+     * @param y y-Koordinate
+     * @param rand Variable, falls das gesamte Feld überschritten wird
+     * @return ausgabe des Character nördlich
+     */
     public static char getNorden (char[][] charr, int x, int y, boolean rand) {
         y --;
 
@@ -75,6 +83,14 @@ public class Simulationen {
         return charr[x][y];
     }
 
+    /**
+     * Die funktionen übergibt den Character südlich des angegebenen Feldes
+     * @param charr 2D-Character Array (Gesamtes Feld)
+     * @param x x-Koordinate
+     * @param y y-Koordinate
+     * @param rand Variable, falls das gesamte Feld überschritten wird
+     * @return ausgabe des Character südlich
+     */
     public static char getSueden (char[][] charr, int x, int y, boolean rand) {
         y++;
 
@@ -88,6 +104,14 @@ public class Simulationen {
         return charr[x][y];
     }
 
+    /**
+     * Die funktionen übergibt den Character westlich des angegebenen Feldes
+     * @param charr 2D-Character Array (Gesamtes Feld)
+     * @param x x-Koordinate
+     * @param y y-Koordinate
+     * @param rand Variable, falls das gesamte Feld überschritten wird
+     * @return ausgabe des Character westlich
+     */
     public static char getWesten (char[][] charr, int x, int y, boolean rand) {
         x--;
 
@@ -101,6 +125,14 @@ public class Simulationen {
         return charr[x][y];
     }
 
+    /**
+     * Die funktionen übergibt den Character westlich des angegebenen Feldes
+     * @param charr 2D-Character Array (Gesamtes Feld)
+     * @param x x-Koordinate
+     * @param y y-Koordinate
+     * @param rand Variable, falls das gesamte Feld überschritten wird
+     * @return ausgabe des Character westlich
+     */
     public static char getOsten (char[][] charr, int x, int y, boolean rand) {
         x++;
 
@@ -114,29 +146,152 @@ public class Simulationen {
         return charr[x][y];
     }
 
+    public static char getNordWest (char[][] charr, int x, int y, boolean rand) {
+        int z = x;
+        int s = y;
+
+        // Schritt 1: Norden
+        if (z > 0) {
+            z--;
+        } else if (rand) {
+            z = charr.length - 1;
+        } else {
+            return '\0';
+        }
+
+        // Schritt 2: Westen
+        if (s > 0) {
+            s--;
+        } else if (rand) {
+            s = charr[0].length - 1;
+        } else {
+            return '\0';
+        }
+
+        return charr[z][s];
+    }
+
+    public static char getNordOst(char[][] charr, int x, int y, boolean rand) {
+        int z = x;
+        int s = y;
+
+        // Norden
+        if (z > 0) {
+            z--;
+        } else if (rand) {
+            z = charr.length - 1;
+        } else {
+            return '\0';
+        }
+
+        // Osten
+        if (s < charr[0].length - 1) {
+            s++;
+        } else if (rand) {
+            s = 0;
+        } else {
+            return '\0';
+        }
+
+        return charr[z][s];
+    }
+
+    public static char getSuedWest(char[][] charr, int x, int y, boolean rand) {
+        int z = x;
+        int s = y;
+
+        // Süden
+        if (z < charr.length - 1) {
+            z++;
+        } else if (rand) {
+            z = 0;
+        } else {
+            return '\0';
+        }
+
+        // Westen
+        if (s > 0) {
+            s--;
+        } else if (rand) {
+            s = charr[0].length - 1;
+        } else {
+            return '\0';
+        }
+
+        return charr[z][s];
+    }
+
+    public static char getSuedOst(char[][] charr, int x, int y, boolean rand) {
+        int z = x;
+        int s = y;
+
+        // Süden
+        if (z < charr.length - 1) {
+            z++;
+        } else if (rand) {
+            z = 0;
+        } else {
+            return '\0';
+        }
+
+        // Osten
+        if (s < charr[0].length - 1) {
+            s++;
+        } else if (rand) {
+            s = 0;
+        } else {
+            return '\0';
+        }
+
+        return charr[z][s];
+    }
+
+    public static int zaehlenVier (char[][] feld, int x, int y, boolean rand, char suchZeichen) {
+        int count = 0;
+
+        if (getNorden(feld, x, y, rand) == suchZeichen) {
+            count++;
+        }
+        if (getOsten(feld, x, y, rand) == suchZeichen) {
+            count++;
+        }
+        if (getSueden(feld, x, y, rand) == suchZeichen) {
+            count++;
+        }
+        if (getWesten(feld, x, y, rand) == suchZeichen) {
+            count++;
+        }
+
+        return count;
+    }
+
+    public static int zaehlenAcht (char[][] feld, int x, int y, boolean rand, char suchZeichen) {
+        int count = zaehlenVier(feld, x, y, rand, suchZeichen);
+
+        if (getNordWest(feld, x, y, rand) == suchZeichen) {
+            count++;
+        }
+        if (getNordOst(feld, x, y, rand) == suchZeichen) {
+            count++;
+        }
+        if (getSuedWest(feld, x, y, rand) == suchZeichen) {
+            count++;
+        }
+        if (getSuedOst(feld, x, y, rand) == suchZeichen) {
+            count++;
+        }
+
+        return count;
+    }
+
     public static void main(String[] args) {
         SchischVisualizer sv = new SchischVisualizer();
         char[][] charr = new char[10][10];
 
+
         //Fuellen
         fuellen(charr,'1',1);
         sv.step(charr);
-        /*
-        fuellen(charr, '1', 0.3);
-        sv.step(charr);
-        fuellen(charr, '2', 0.6, ' ');
-        sv.step(charr);
-        platzieren(charr,'O',true);
-        sv.step(charr);
-        platzieren(charr,'O',true);
-        sv.step(charr);
-        platzieren(charr,'O',true);
-        sv.step(charr);
-        platzieren(charr,'O',true);
-        sv.step(charr);
-        platzieren(charr,'O',true);
-        sv.step(charr);
-         */
 
         sv.start();
     }
