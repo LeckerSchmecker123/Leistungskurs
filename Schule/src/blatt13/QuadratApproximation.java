@@ -7,6 +7,8 @@ public class QuadratApproximation {
         return flaescheninhalt;
     }
 
+
+
     public static void main(String[] args) {
         System.out.println(flaecheQuadrat(10));
     }
