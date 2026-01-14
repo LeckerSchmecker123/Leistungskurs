@@ -8,6 +8,7 @@ public class Farben {
     static int[] spielerPosX = new int[8];
     static int[] spielerPosY = new int[8];
 
+    //a)
     public static void initialisiereSpielfeld(int h, int b) {
         if (h % 2 != 0) {
             h++;
@@ -32,13 +33,95 @@ public class Farben {
         }
     }
 
-    public static void startPositionen () {}
+
+    //b)
+    public static void startPositionen (int[] spielerPosX, int[] spielerPosY) {
+        //Team 1 linke seite -> position < als feld / 2 -> math.random * feld / 2
+        //Team 2 rechte seite -> position > als feld / 2 -> feld / 2 + math.random * feld / 2
+
+        //Team 1 (0-3)
+        for (int i = 0; i <= 3; i++) {
+            int x = (int) (Math.random() * spielfeld.length / 2);
+            int y = (int) (Math.random() * spielfeld[0].length);
+            spielerPosX[i] = x;
+            spielerPosY[i] = y;
+            while (spielfeld[spielerPosX[i]][spielerPosY[i]] == '8') {
+                x = (int) (Math.random() * spielfeld.length / 2);
+                y = (int) (Math.random() * spielfeld[0].length);
+                spielerPosX[i] = x;
+                spielerPosY[i] = y;
+            }
+            spielfeld[spielerPosX[i]][spielerPosY[i]] = 'P';
+        }
+
+        //Team 2 (4-7)
+        for (int i = 4; i <= 7; i++) {
+            int x = (int) (spielfeld.length / 2 + Math.random() * spielfeld.length / 2);
+            int y = (int) (Math.random() * spielfeld[0].length);
+            spielerPosX[i] = x;
+            spielerPosY[i] = y;
+            while (spielfeld[spielerPosX[i]][spielerPosY[i]] == '8') {
+                x = (int) (spielfeld.length / 2 + Math.random() * spielfeld.length / 2);
+                y = (int) (Math.random() * spielfeld[0].length);
+                spielerPosX[i] = x;
+                spielerPosY[i] = y;
+            }
+            spielfeld[spielerPosX[i]][spielerPosY[i]] = 'P';
+        }
+    }
+
+
+    //c)
+    public static int zaehlen7(char[][] spielfeld) {
+        int count = 0;
+        for (int i = 0; i < spielfeld.length; i++) {
+            for (int j = 0; j < spielfeld[i].length; j++) {
+                if (spielfeld[i][j] == '7') {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    public static int zaehlen9 (char[][] spielfeld) {
+        int count = 0;
+        for (int i = 0; i < spielfeld.length; i++) {
+            for (int j = 0; j < spielfeld[i].length; j++) {
+                if (spielfeld[i][j] == '9') {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+    //d)
+    public static void respawn (int[] spielerPosX, int[] spielerPosY) {
+        int x = 0;
+        int y = 0;
+
+    }
 
     public static void main(String[] args) {
         SchischVisualizer sv = new SchischVisualizer();
 
-        initialisiereSpielfeld(80, 80);
+        initialisiereSpielfeld(10, 10);
         sv.step(spielfeld);
+
+        /*
+        blatt14.Simulationen.fuellen(spielfeld, '7', 0.4 , ' ');
+        sv.step(spielfeld);
+
+        blatt14.Simulationen.fuellen(spielfeld, '9', 0.2, ' ');
+        sv.step(spielfeld);
+
+        System.out.println(zaehlen7(spielfeld));
+        System.out.println(zaehlen9(spielfeld));
+         */
+
+        startPositionen(spielerPosX, spielerPosY);
+        sv.step(spielfeld);
+
 
         sv.start();
 
