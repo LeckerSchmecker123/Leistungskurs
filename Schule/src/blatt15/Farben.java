@@ -96,10 +96,48 @@ public class Farben {
         return count;
     }
     //d)
-    public static void respawn (int[] spielerPosX, int[] spielerPosY) {
-        int x = 0;
-        int y = 0;
+    public static void respawn (int spieler) {
+        spieler --;
+        // wenn spieler 0 - 3 dann '7'
+        // wenn spieler 4 - 7 dann '9'
 
+        spielfeld[spielerPosX[spieler]][spielerPosY[spieler]] = ' ';
+
+
+        int newX;
+        int newY;
+
+        newX = (int) (Math.random() *  spielfeld.length);
+        newY = (int) (Math.random() * spielfeld[0].length);
+
+        if (spieler < 4) {
+            while (spielfeld[newX][newY] != '7') {
+                newX = (int) (Math.random() * spielfeld.length);
+                newY = (int) (Math.random() * spielfeld[0].length);
+            }
+        }
+        if (spieler > 3) {
+            while (spielfeld[newX][newY] != '9') {
+                newX = (int) (Math.random() * spielfeld.length);
+                newY = (int) (Math.random() * spielfeld[0].length);
+            }
+        }
+
+
+        spielerPosX[spieler] = newX;
+        spielerPosY[spieler] = newY;
+
+        spielfeld[spielerPosX[spieler]][spielerPosY[spieler]] = 'P';
+
+    }
+
+
+    //e)
+    public static int reihenfolge (int a) {
+        int[] spielerreihenfolge = new int[69] ;
+
+
+        return a;
     }
 
     public static void main(String[] args) {
@@ -108,18 +146,23 @@ public class Farben {
         initialisiereSpielfeld(10, 10);
         sv.step(spielfeld);
 
-        /*
+        startPositionen(spielerPosX, spielerPosY);
+        sv.step(spielfeld);
+
         blatt14.Simulationen.fuellen(spielfeld, '7', 0.4 , ' ');
         sv.step(spielfeld);
 
         blatt14.Simulationen.fuellen(spielfeld, '9', 0.2, ' ');
         sv.step(spielfeld);
 
-        System.out.println(zaehlen7(spielfeld));
-        System.out.println(zaehlen9(spielfeld));
-         */
+        System.out.println("alt:");
+        System.out.println(spielerPosX[0]);
+        System.out.println(spielerPosY[0]);
 
-        startPositionen(spielerPosX, spielerPosY);
+        respawn(1);
+        System.out.println("neu");
+        System.out.println(spielerPosX[0]);
+        System.out.println(spielerPosY[0]);
         sv.step(spielfeld);
 
 
