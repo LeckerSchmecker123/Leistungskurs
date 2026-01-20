@@ -2,11 +2,14 @@ package blatt15;
 
 import schisch_visualizer.SchischVisualizer;
 
+import java.util.Arrays;
+
 public class Farben {
 
     static char[][] spielfeld;
     static int[] spielerPosX = new int[8];
     static int[] spielerPosY = new int[8];
+    static int[] reihenfolge;
 
     //a)
     public static void initialisiereSpielfeld(int h, int b) {
@@ -72,11 +75,21 @@ public class Farben {
 
 
     //c)
-    public static int zaehlen7(char[][] spielfeld) {
+    public static int zaehlen(int team) {
+        char farbe = ' ';
+
+        if  (team == 1) {
+            farbe = '7';
+        }
+        else if (team == 2) {
+            farbe = '9';
+        }
+
+
         int count = 0;
         for (int i = 0; i < spielfeld.length; i++) {
             for (int j = 0; j < spielfeld[i].length; j++) {
-                if (spielfeld[i][j] == '7') {
+                if (spielfeld[i][j] == farbe) {
                     count++;
                 }
             }
@@ -84,60 +97,67 @@ public class Farben {
         return count;
     }
 
-    public static int zaehlen9 (char[][] spielfeld) {
-        int count = 0;
-        for (int i = 0; i < spielfeld.length; i++) {
-            for (int j = 0; j < spielfeld[i].length; j++) {
-                if (spielfeld[i][j] == '9') {
-                    count++;
-                }
-            }
-        }
-        return count;
-    }
     //d)
     public static void respawn (int spieler) {
+        //TODO: Komplette funktion überarbeiten
         spieler --;
         // wenn spieler 0 - 3 dann '7'
         // wenn spieler 4 - 7 dann '9'
 
-        spielfeld[spielerPosX[spieler]][spielerPosY[spieler]] = ' ';
-
+        //spielfeld[spielerPosX[spieler]][spielerPosY[spieler]] = ' ';
 
         int newX;
         int newY;
 
+        spielerPosX[spieler] = -1;
+        spielerPosY[spieler] = -1;
+
+
         newX = (int) (Math.random() *  spielfeld.length);
         newY = (int) (Math.random() * spielfeld[0].length);
 
-        if (spieler < 4) {
-            while (spielfeld[newX][newY] != '7') {
-                newX = (int) (Math.random() * spielfeld.length);
-                newY = (int) (Math.random() * spielfeld[0].length);
+        if (zaehlen(1) > 0 || zaehlen(2) > 0) {
+            if (spieler < 4) {
+                while (spielfeld[newX][newY] != '7') {
+                    newX = (int) (Math.random() * spielfeld.length);
+                    newY = (int) (Math.random() * spielfeld[0].length);
+                }
             }
-        }
-        if (spieler > 3) {
-            while (spielfeld[newX][newY] != '9') {
-                newX = (int) (Math.random() * spielfeld.length);
-                newY = (int) (Math.random() * spielfeld[0].length);
+            if (spieler > 3) {
+                while (spielfeld[newX][newY] != '9') {
+                    newX = (int) (Math.random() * spielfeld.length);
+                    newY = (int) (Math.random() * spielfeld[0].length);
+                }
             }
+        } else {
+            System.out.println("Es gibt keine Felder des Teams mehr");
         }
-
 
         spielerPosX[spieler] = newX;
         spielerPosY[spieler] = newY;
 
         spielfeld[spielerPosX[spieler]][spielerPosY[spieler]] = 'P';
-
     }
 
 
     //e)
-    public static int reihenfolge (int a) {
-        int[] spielerreihenfolge = new int[69] ;
+    public static int[] reihenfolge () {
+        //TODO: verhindern das ein spieler zweifach vorkommt
+        int[] spielerreihenfolge = new int[8];
+        int[] kopier = new int[8];
 
+        for (int i = 0; i <= spielerreihenfolge.length - 1; i++) {
+            int b =  (int) (Math.random() * 8);
+            spielerreihenfolge[i] = b;
+            kopier[i] = b;
+            for (int j = 0; j <= spielerreihenfolge.length - 1; j++) {
+                if (spielerreihenfolge[i] == kopier[j]) {
+                    spielerreihenfolge[i] = (int) (Math.random() * 8);
+                }
+            }
+        }
 
-        return a;
+        return spielerreihenfolge;
     }
 
     public static void main(String[] args) {
@@ -165,6 +185,8 @@ public class Farben {
         System.out.println(spielerPosY[0]);
         sv.step(spielfeld);
 
+        System.out.println("Reihenfolge:");
+        System.out.println(Arrays.toString(reihenfolge()));
 
         sv.start();
 
