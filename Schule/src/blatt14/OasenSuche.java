@@ -79,7 +79,6 @@ public class OasenSuche {
                 neueSpalte++;
             }
 
-            /*
             neueZeile = randUeberschreitung(neueZeile, spielfeld.length);
             neueSpalte = randUeberschreitung(neueSpalte, spielfeld[0].length);
 
@@ -87,7 +86,7 @@ public class OasenSuche {
             if (spielfeld[neueZeile][neueSpalte] == '2' || spielfeld[neueZeile][neueSpalte] == 'A') {
                 continue;
             }
-             */
+
 
             // Feld markieren
             spielfeld[spielerZeile][spielerSpalte] = '4';
