@@ -7,9 +7,26 @@ public class Systemsprenger {
 
     public static void sprengen (int anzahl) {
         try {
-            File a =  new File("Schule/sprengtest/Textdatei00.txt");
-            FileWriter fw = new FileWriter(a);
-            //TODO: in for schleife namen ändern und inhalt hinzufügen
+            for (int i = 1; i <= anzahl; i++) {
+                File tx = new File("Schule/sprengtest/Textdatei" + i + ".txt");
+
+                try {
+                    FileWriter fw = new FileWriter(tx);
+                    fw.write(i + "haus\n");
+                    int auswahl = (int) (Math.random() * anzahl);
+                    if (auswahl % 2 == 0) {
+                        fw.write("Hurensohn\n");
+                    }
+
+                    //if (auswahl % 3 == 0) {
+                    //    fw.write("Fotze\n");
+                    //}
+
+                    fw.close();
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+            }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -21,6 +38,6 @@ public class Systemsprenger {
         if (f.exists() != true) {
             f.mkdir();
         }
-        sprengen(10);
+        sprengen(1000);
     }
 }
