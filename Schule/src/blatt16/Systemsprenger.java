@@ -38,6 +38,6 @@ public class Systemsprenger {
         if (f.exists() != true) {
             f.mkdir();
         }
-        sprengen(1000);
+        sprengen(100000);
     }
 }
