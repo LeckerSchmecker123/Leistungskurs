@@ -30,7 +30,7 @@ public class InsertionSort {
      * Die Prozedur sortiert nach dem Insertion Sort Prinzip, aber hier als In-Place-Algorithmus
      * @param arr zu sortierendes Array
      */
-    public static void insertionSortInPlace(int[] arr) {
+    public static int[] insertionSortInPlace(int[] arr) {
         for (int i = 1; i <= arr.length - 1; i++) {
             int current = arr[i];
             int j = i - 1;
@@ -41,6 +41,7 @@ public class InsertionSort {
             }
             arr[j + 1] = current;
         }
+        return arr;
     }
 
     public static void main(String[] args) {
