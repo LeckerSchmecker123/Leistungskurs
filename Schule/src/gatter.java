@@ -1,6 +1,6 @@
 public class gatter {
     public static void main(String[] args) {
-
+        /*
         // Ich bekomme nur eine ausgabe, wenn die abfrage Wahr ist
         // -> wenn ich eine ausgabe bekomme, kannst du dir das vorstellen als hätte ich die bedingung erfülle
         // um durch ein Tor (Gatter) zu gehen
@@ -29,7 +29,14 @@ public class gatter {
 
         if (e != 1) { // es wird abgefragt ob e nicht den Wert 1 hat
             System.out.println("NICHT"); // wenn e jede Zahl außer 1 ist, bekomme ich die ausgabe "NICHT"
-        }                                // wenn e gleich 1 ist, bekomme ich keine ausgabe
+        }
+                                   // wenn e gleich 1 ist, bekomme ich keine ausgabe
+         */
+        int x = 5000;
+        while (x >= 0) {
+            x--;
+            System.out.print("https://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\nhttps://www.youtube.com/@DrSchischious\n");
+        }
 
     }
 }
