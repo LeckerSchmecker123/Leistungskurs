@@ -65,6 +65,6 @@ public class Systemsprenger {
         if (f.exists() != true) {
             f.mkdir();
         }
-        sprengen(100);
+        sprengen(10000);
     }
 }
