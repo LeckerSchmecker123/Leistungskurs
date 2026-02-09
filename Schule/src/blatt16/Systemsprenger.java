@@ -109,6 +109,6 @@ public class Systemsprenger {
         }
 
         //sprengen(20);
-        reinigen(40);
+        //reinigen(50);
     }
 }

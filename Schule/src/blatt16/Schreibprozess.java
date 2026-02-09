@@ -22,6 +22,7 @@ public class Schreibprozess {
             fw.write("Der testet\n");
             fw.write("Und ein Test ist\n");
             fw.close();
+            System.out.println(f.getAbsolutePath());
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
