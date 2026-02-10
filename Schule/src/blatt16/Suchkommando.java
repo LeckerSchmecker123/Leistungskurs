@@ -7,10 +7,14 @@ public class Suchkommando {
 
     public static void suchen (String dateiname, String dateiendung) {
         try {
-            File f = new File("Schule/io/forSearch/" + dateiname + "." + dateiendung);
+            File u = new File("/Users/lmuth");
+            String[] s = u.list();
+            blatt07.ArbeitMitArrays.printArray(s);
+            /*File f = new File("Schule/io/forSearch/" + dateiname + "." + dateiendung);
             if  (f.exists()) {
                 System.out.println(f.getAbsolutePath());
             }
+             */
         }  catch (Exception e) {
             System.out.println(e.getMessage());
         }

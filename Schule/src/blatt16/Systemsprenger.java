@@ -1,5 +1,7 @@
 package blatt16;
 
+import blatt07.ArbeitMitArrays;
+
 import java.io.File;
 import java.io.FileWriter;
 
@@ -90,12 +92,17 @@ public class Systemsprenger {
         System.out.println(zaehler);
     }
 
-    public static void reinigen (int anzahl) {
+    public static void reinigen () {
         try {
-            for (int i = 0; i <= anzahl; i++) {
-                File tx = new File("Schule/sprengtest/Textdatei" + i + ".txt");
-                tx.delete();
-            }
+            File tx = new File("Schule/sprengtest/");
+            File[] s = tx.listFiles();
+
+            for (int i = 0; i < s.length; i++) {
+                    if (s[i].getName().startsWith("Textdatei") && s[i].getName().endsWith(".txt")) {
+                        s[i].delete();
+                    }
+                }
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -104,11 +111,11 @@ public class Systemsprenger {
     public static void main(String[] args) {
 
         File f = new File("Schule/sprengtest");
-        if (f.exists() != true) {
-            f.mkdir();
+        if (!f.exists()) {
+            f.mkdirs();
         }
 
-        //sprengen(20);
-        //reinigen(50);
+        sprengen(100);
+        reinigen();
     }
 }
