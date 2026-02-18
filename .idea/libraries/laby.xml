@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="laby">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Schule/io/laby.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
