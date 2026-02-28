@@ -1,7 +1,5 @@
 package blatt16;
 
-import blatt07.ArbeitMitArrays;
-
 import java.io.File;
 import java.io.FileWriter;
 
@@ -31,7 +29,7 @@ public class Systemsprenger {
                     } else if (auswahl == 2) {
                         zaehler++;
                         fw.write(2 + " Coole Fabel bro:\n");
-                        fw.write("Hase und Wolf, gute Freunde, spielen im Wald.\n Aus Unachtsamkeit fällt Hase in ein tiefes Loch und kommt allein nicht mehr heraus.\n Der Wolf versucht, ihm zu helfen indem er seinen Schwanz in das Loch hängen lässt.\n Der Hase kann ihn erreichen und klettert unbeschadet heraus.\n Das wilde Spiel geht weiter und es kommt wie es kommen muss – auch der Wolf fällt in ein Loch.\n Nun versucht der Hase, den gleichen Kniff an zuwenden.\n Sein Schwanz ist viel zu kurz.\n Er hat aber ein Handy und kann die Feuerwehr holen, die prompt den Wolf rettet.\n\n Moral:Wenn Du einen kurzen Schwanz hast, brauchst Du ein Handy.");
+                        fw.write("Hase und Wolf, gute Freunde, spielen im Wald.\n Aus Unachtsamkeit fällt Hase in ein tiefes Loch und kommt allein nicht mehr heraus.\n Der Wolf versucht, ihm zu helfen indem er seinen Schwanz in das Loch hängen lässt.\n Der Hase kann ihn erreichen und klettert unbeschadet heraus.\n Das wilde Spiel geht weiter und es kommt wie es kommen muss – auch der Wolf fällt in ein Loch.\n Nun versucht der Hase, den gleichen Kniff an zuwenden.\n Sein Schwanz ist viel zu kurz.\n Er hat aber ein Handy und kann die Feuerwehr holen, die prompt den Wolf rettet.\n\n Moral: Wenn Du einen kurzen Schwanz hast, brauchst Du ein Handy.");
                     } else if (auswahl == 3) {
                         zaehler++;
                         fw.write(3 + " Bill Gates/IT-Witze:\n");
@@ -102,7 +100,6 @@ public class Systemsprenger {
                         s[i].delete();
                     }
                 }
-
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -115,7 +112,7 @@ public class Systemsprenger {
             f.mkdirs();
         }
 
-        sprengen(100);
+        //sprengen(100);
         reinigen();
     }
 }
