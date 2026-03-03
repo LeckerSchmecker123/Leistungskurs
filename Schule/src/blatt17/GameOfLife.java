@@ -16,8 +16,8 @@ public class GameOfLife {
     }
 
     public static void initRandom(double w) {
-        //blatt14.Simulationen.fuellen(spielfeld, '9', 1);
-        blatt14.Simulationen.fuellen(spielfeld, '4', w);
+        blatt14.Simulationen.fuellen(spielfeld, '4', 1);
+        blatt14.Simulationen.fuellen(spielfeld, '9', w);
     }
 
     public static char[][] weiter() {
@@ -113,11 +113,11 @@ public class GameOfLife {
         SchischVisualizer sv = new SchischVisualizer();
         initSpielfeld(100, 100);
 
-        initRandom(1);
+        initRandom(0.3);
         sv.step(spielfeld);
 
-        osziellierend(6);
-        sv.step(spielfeld);
+        //osziellierend(6);
+        //sv.step(spielfeld);
 
         char[][] feldNeu = weiter();
 
