@@ -16,8 +16,8 @@ public class GameOfLife {
     }
 
     public static void initRandom(double w) {
-        blatt14.Simulationen.fuellen(spielfeld, '4', 1);
-        blatt14.Simulationen.fuellen(spielfeld, '9', w);
+        //blatt14.Simulationen.fuellen(spielfeld, '9', w / 10);
+        blatt14.Simulationen.fuellen(spielfeld, '4', w);
     }
 
     public static char[][] weiter() {
@@ -49,7 +49,7 @@ public class GameOfLife {
         int x = spielfeld.length / 2;
         int y  = spielfeld[0].length / 2;
 
-        if (auswahl == 1) {
+        if (auswahl <= 1) {
             spielfeld[x - 1][y] = '9';
             spielfeld[x][y] = '9';
             spielfeld[x + 1][y] = '9';
@@ -103,21 +103,37 @@ public class GameOfLife {
             spielfeld[x - 4][y + 1] = '9';
             spielfeld[x - 5][y] = '9';
         } else if (auswahl == 7) {
-
+            spielfeld[x - 1][y] = '9';
+            spielfeld[x + 1][y] = '9';
+            spielfeld[x - 2][y - 1] = '9';
+            spielfeld[x + 2][y - 1] = '9';
+            spielfeld[x - 3][y - 2] = '9';
+            spielfeld[x + 3][y - 2] = '9';
+            spielfeld[x - 4][y - 1] = '9';
+            spielfeld[x - 4][y] = '9';
+            spielfeld[x + 4][y - 1] = '9';
+            spielfeld[x + 4][y] = '9';
+            spielfeld[x - 2][y + 1] = '9';
+            spielfeld[x + 2][y + 1] = '9';
+            spielfeld[x - 2][y + 2] = '9';
+            spielfeld[x + 2][y + 2] = '9';
+            spielfeld[x - 1][y + 2] = '9';
+            spielfeld[x + 1][y + 2] = '9';
         } else if (auswahl == 8) {
-
+            //TODO: Fertig machen (prinzip ist das gleiche auch für a) / b)
         }
     }
+
 
     public static void main(String[] args) {
         SchischVisualizer sv = new SchischVisualizer();
         initSpielfeld(100, 100);
 
-        initRandom(0.3);
+        initRandom(1);
         sv.step(spielfeld);
 
-        //osziellierend(6);
-        //sv.step(spielfeld);
+        osziellierend(7);
+        sv.step(spielfeld);
 
         char[][] feldNeu = weiter();
 

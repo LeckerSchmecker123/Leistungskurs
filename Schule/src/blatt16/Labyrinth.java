@@ -1,27 +1,22 @@
 package blatt16;
 
+import schisch_visualizer.SchischVisualizer;
+
 import java.io.File;
 
 public class Labyrinth {
 
-    public char[][] leseLabyrinth (int laby) {
+    static SchischVisualizer sv = new SchischVisualizer();
 
-        File f = new File("io/laby" + laby + ".txt");
-        return null;
+    public char[][] leseLabyrinth (int laby) {
+        if (laby < 10) {
+            return Stroeme.readCharArray("laby0" + laby + ".txt", "Schule" + File.separator + "src" + File.separator + "blatt16");
+        }
+        return Stroeme.readCharArray("laby" + laby + ".txt", "Schule" + File.separator + "src" + File.separator + "blatt16");
+
     }
 
 
-
-
-
-
-
-
-
-
-
-
-    public void labyrithSimulationen () {}
     public static void main(String[] args) {
 
     }

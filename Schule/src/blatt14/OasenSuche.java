@@ -4,124 +4,211 @@ import schisch_visualizer.SchischVisualizer;
 
 public class OasenSuche {
 
+    static SchischVisualizer sv = new SchischVisualizer();
     static char[][] spielfeld;
-    static int spielerZeile;
-    static int spielerSpalte;
+    static int[] spielerPosition = new int[2];
     static int energie;
 
     public static void initialisiereSpielfeld(int hoehe, int breite) {
         spielfeld = blatt14.MultiArrays.createEmpty2DArray(hoehe, breite);
-        blatt14.Simulationen.fuellen(spielfeld, '0', 1);
     }
 
     public static void zufallsPositionSpieler() {
-        if (spielfeld == null) {
-            return;
+        if (spielfeld != null) {
+            int positionX = (int) (Math.random() * spielfeld.length);
+            int positionY = (int) (Math.random() * spielfeld[0].length);
+
+            if (spielerPosition != null && spielfeld[spielerPosition[0]][spielerPosition[1]] == 'P') {
+                spielfeld[spielerPosition[0]][spielerPosition[1]] = 'P';
+            }
+
+            spielerPosition[0] = positionX;
+            spielerPosition[1] = positionY;
+            spielfeld[spielerPosition[0]][spielerPosition[1]] = 'P';
         }
-
-        spielerZeile = (int) (Math.random() * spielfeld.length);
-        spielerSpalte = (int) (Math.random() * spielfeld[0].length);
-
-        spielfeld[spielerZeile][spielerSpalte] = 'P';
     }
 
     public static void wasserZufall(double wahrscheinlichkeit) {
-        if (spielfeld == null) {
-            return;
+        if (spielfeld != null) {
+            for (int i = 0; i < spielfeld.length; i++) {
+                for (int j = 0; j < spielfeld[0].length; j++) {
+                    double zufallsZahl = Math.random();
+                    if (zufallsZahl <= wahrscheinlichkeit && (i != spielerPosition[0] && j != spielerPosition[1])) {
+                        spielfeld[i][j] = '2';
+                    }
+                }
+            }
         }
-
-        blatt14.Simulationen.fuellen(spielfeld, '2', wahrscheinlichkeit, '0');
     }
 
     public static void steinZufall(double wahrscheinlichkeit) {
-        if (spielfeld == null) {
-            return;
+        if (spielfeld != null) {
+            for (int i = 0; i < spielfeld.length; i++) {
+                for (int j = 0; j < spielfeld[0].length; j++) {
+                    double zufallsZahl = Math.random();
+                    if (zufallsZahl <= wahrscheinlichkeit && (i != spielerPosition[0] && j != spielerPosition[1])) {
+                        spielfeld[i][j] = 'A';
+                    }
+                }
+            }
         }
-
-        blatt14.Simulationen.fuellen(spielfeld, 'A', wahrscheinlichkeit, '0');
     }
 
-    public static int randUeberschreitung(int wert, int max) {
-        if (wert < 0) return max - 1;
-        if (wert >= max) return 0;
-        return wert;
-    }
+    public static void bewegeSpielerZufaellig(){
 
-    //TODO: das bewegen funktioniert nicht!!!!!!!!!!!!
-    public static void findeWasser(int energiewert) {
-        if (spielfeld == null) {
-            return;
+        int richtung = (int)(Math.random()*4);
+
+        spielfeld[spielerPosition[0]][spielerPosition[1]] = '4';
+
+        if(richtung==0){ // Schritt nach rechts
+
+            if(spielerPosition[0]!=spielfeld[0].length-1){
+
+                if((spielfeld[spielerPosition[0]+1][spielerPosition[1]] != '2')&&(spielfeld[spielerPosition[0]+1][spielerPosition[1]] != 'A')) {
+
+                    spielerPosition[0]++;
+
+                } else{
+
+                    energie++;
+
+                }
+
+            } else{
+
+                if((spielfeld[0][spielerPosition[1]] != '2')&&(spielfeld[0][spielerPosition[1]] != 'A')) {
+
+                    spielerPosition[0] = 0;
+
+                } else{
+
+                    energie++;
+
+                }
+
+            }
+
+        } else if(richtung==1){ // Schritt nach oben
+
+            if(spielerPosition[1]!=0){
+
+                if((spielfeld[spielerPosition[0]][spielerPosition[1]-1] != '2')&&spielfeld[spielerPosition[0]][spielerPosition[1]-1] != 'A') {
+
+                    spielerPosition[1]--;
+
+                } else{
+
+                    energie++;
+
+                }
+
+            } else{
+
+                if((spielfeld[spielerPosition[0]][spielfeld[0].length-1] != '2') && spielfeld[spielerPosition[0]][spielfeld[0].length-1] != 'A') {
+
+                    spielerPosition[1] = spielfeld[0].length - 1;
+
+                } else{
+
+                    energie++;
+
+                }
+
+            }
+
+        } else if(richtung==2) { // Schritt nach links
+
+            if(spielerPosition[0]!=0){
+
+                if ((spielfeld[spielerPosition[0]-1][spielerPosition[1]] != '2')&&spielfeld[spielerPosition[0]-1][spielerPosition[1]] != 'A') {
+
+                    spielerPosition[0]--;
+
+                } else{
+
+                    energie++;
+
+                }
+
+            } else{
+
+                if ((spielfeld[spielfeld.length-1][spielerPosition[1]] != '2')&&spielfeld[spielfeld.length-1][spielerPosition[1]] != 'A') {
+
+                    spielerPosition[0] = spielfeld.length - 1;
+
+                } else{
+
+                    energie++;
+
+                }
+
+            }
+
+        } else if(richtung==3) { // Schritt nach unten
+
+            if(spielerPosition[1]!=spielfeld[0].length-1){
+
+                if ((spielfeld[spielerPosition[0]][spielerPosition[1]+1] != '2')&&spielfeld[spielerPosition[0]][spielerPosition[1] + 1] != 'A') {
+
+                    spielerPosition[1]++;
+
+                } else{
+
+                    energie++;
+
+                }
+
+            } else{
+
+                if ((spielfeld[spielerPosition[0]][0] != '2')&&spielfeld[spielerPosition[0]][0] != 'A') {
+
+                    spielerPosition[1] = 0;
+
+                } else{
+
+                    energie++;
+
+                }
+
+            }
+
         }
 
-        energie = energiewert;
+        spielfeld[spielerPosition[0]][spielerPosition[1]] = 'P';
 
-        while (energie > 0) {
-
-            if (blatt14.Simulationen.zaehlenVier(spielfeld, spielerZeile, spielerSpalte, true, '2') != 0) {
-                System.out.println("Wasser gefunden!!!");
-                break;
-            }
-
-            int richtung = (int) (Math.random() * 4);
-            int neueZeile = spielerZeile;
-            int neueSpalte = spielerSpalte;
-
-            if (richtung == 1) { // Norden
-                neueZeile--;
-            }
-            if (richtung == 2) { // Süden
-                neueZeile++;
-            }
-            if (richtung == 3) { // Westen
-                neueSpalte--;
-            }
-            if (richtung == 4) { // Osten
-                neueSpalte++;
-            }
-
-            neueZeile = randUeberschreitung(neueZeile, spielfeld.length);
-            neueSpalte = randUeberschreitung(neueSpalte, spielfeld[0].length);
-
-
-            if (spielfeld[neueZeile][neueSpalte] == '2' || spielfeld[neueZeile][neueSpalte] == 'A') {
-                continue;
-            }
-
-
-            // Feld markieren
-            spielfeld[spielerZeile][spielerSpalte] = '4';
-
-            // Bewegung
-            spielerZeile = neueZeile;
-            spielerSpalte = neueSpalte;
-            spielfeld[spielerZeile][spielerSpalte] = 'P';
-
-            energie--;
-        }
-
-        System.out.println("Keine Energie mehr – Aufgabe beendet.");
     }
+
+    public static void findeWasser (int energiewert) {
+        if (spielfeld != null) {
+            if (spielerPosition != null) {
+                energie = energiewert;
+                for (; energie > 0; energie--) {
+                    int wasserNaehe = Simulationen.zaehlenAcht(spielfeld, spielerPosition[0], spielerPosition[1], false, '2');
+                    if (energie == 0) {
+                        System.out.println("Energie leer, gestorben!!!");
+                    }
+                    if (wasserNaehe > 0) {
+                        System.out.println("Wasser gefunden!!!");
+                        break;
+                    }
+                    bewegeSpielerZufaellig();
+                    sv.step(spielfeld);
+                }
+            }
+        }
+    }
+
 
     public static void main(String[] args) {
-        SchischVisualizer sv = new SchischVisualizer();
-
         initialisiereSpielfeld(60, 60);
         sv.step(spielfeld);
-
         zufallsPositionSpieler();
         sv.step(spielfeld);
-
         wasserZufall(0.03);
         sv.step(spielfeld);
-
         steinZufall(0.15);
         sv.step(spielfeld);
-
-        while (energie > 0) {
-            findeWasser(50);
-            sv.step(spielfeld);
-        }
-
+        findeWasser(50);
         sv.start();
     }
 }
