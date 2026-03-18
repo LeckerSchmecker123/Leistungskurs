@@ -1,5 +1,7 @@
 package blatt20_aufgabe0;
 
+import java.util.Objects;
+
 public class Smartphone {
 
     private String marke;
@@ -10,9 +12,9 @@ public class Smartphone {
     private int displaygroesse;
     private int helligkeit;
     private int lautstaerke;
-    private int betriebssystem;
+    private String betriebssystem;
 
-    public Smartphone(int speicherplatz, int preis, String modell, String marke, int displaygroesse, int helligkeit,  int lautstaerke, int betriebssystem) {
+    public Smartphone(int speicherplatz, int preis, String modell, String marke, int displaygroesse, int helligkeit,  int lautstaerke, String betriebssystem) {
         this.speicherplatz = speicherplatz;
         this.preis = preis;
         this.modell = modell;
@@ -113,4 +115,18 @@ public class Smartphone {
     void laden(int l) {
         setAkkustand(this.akkustand + l);
     }
+
+    @Override
+    public boolean equals (Object o) {
+        //1 Referenzvergleich
+        if (this == o) return true;
+        //2 null oder falscher Typ
+        if (o == null || !(o instanceof Smartphone that)) return false;
+        //3 Cast
+        Smartphone a = (Smartphone) o;
+        //4
+        return akkustand == that.akkustand && preis == that.preis && speicherplatz == that.speicherplatz && displaygroesse == that.displaygroesse && helligkeit == that.helligkeit && lautstaerke == that.lautstaerke && Objects.equals(marke, that.marke) && Objects.equals(modell, that.modell) && Objects.equals(betriebssystem, that.betriebssystem);
+    }
+
+
 }
