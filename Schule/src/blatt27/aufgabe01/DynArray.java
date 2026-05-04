@@ -87,5 +87,34 @@ public class DynArray {
     }
 
     //i
+    public void add(int zahl, int pos) {
+        add(zahl);
+        for (int i = pos; i < this.arr.length; i++) {
+            int temp = this.arr[i];
+            this.arr[i] = this.arr[this. arr.length - 1];
+            this.arr[this.arr.length - 1] = temp;
+        }
+    }
 
+    //j
+    public void set(int zahl, int pos) {
+        this.arr[pos] = zahl;
+    }
+
+    //k
+    public int remove (int pos) {
+        int tempzahl = this.arr[pos];
+        int[] temp1 = new int[pos];
+        int[] temp2 = new int[this.arr.length - 1 - pos];
+        for (int i = 0; i < pos; i++) {
+            temp1[i] = this.arr[i];
+        }
+        for (int i = pos + 1; i < this.arr.length; i++) {
+            int count = 0;
+            temp2[count] = this.arr[i];
+            count++;
+        }
+        int[] temp3 = new int[this.arr.length - 1 - pos];
+        return -1;
+    }
 }

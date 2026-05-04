@@ -17,7 +17,7 @@ public class Main {
         System.out.println(d.indexOf(11));
 
         d.printArr();
-        d.add(1);
+        System.out.println(d.remove(4));
         d.printArr();
     }
 }
