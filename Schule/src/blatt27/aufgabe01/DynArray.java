@@ -87,5 +87,24 @@ public class DynArray {
     }
 
     //i
+    public void add(int zahl, int pos) {
+        add(zahl);
+        for (int i = pos; i < this.arr.length; i++) {
+            int count = this.arr.length - 1;
+            int temp = this.arr[i];
+            this.arr[i] = this.arr[count];
+            this.arr[count] = temp;
+            count--;
+        }
+    }
 
+    //j
+    public void set(int zahl, int pos) {
+        this.arr[pos] = zahl;
+    }
+
+    //k
+    public int remove (int pos) {
+        return -1;
+    }
 }
