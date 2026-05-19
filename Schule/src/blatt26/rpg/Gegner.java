@@ -1,4 +1,4 @@
 package blatt26.rpg;
 
-public class Krieger{
+public class Gegner {
 }

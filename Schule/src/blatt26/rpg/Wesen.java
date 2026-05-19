@@ -2,20 +2,36 @@ package blatt26.rpg;
 
 public abstract class Wesen {
 
-    int staerke;
-    int konstitution;
-    int mStaerke;
-    int mVerteidigung;
-    int hp;
-    int mp;
-    int geschwindigkeit;
-    int glueck;
+    private Ausruestung ausruestung;
+    private Held held;
+    private Gegner gegner;
 
-    public int angreifen () {
-        return -1;
+    private int lvl;
+    private int xp;
+    private int stk;
+    private int vit;
+    private int ges;
+    private int hp;
+    private int maxhp;
+    private int luck;
+
+    public Wesen(int lvl, int xp, int stk, int vit, int ges, int maxhp, int luck) {
+        this.ausruestung = null;
+        this.held = null;
+        this.gegner = null;
+        this.lvl = lvl;
+        this.xp = xp;
+        this.stk = stk;
+        this.vit = vit;
+        this.ges = ges;
+        this.hp = maxhp;
+        this.maxhp = maxhp;
+        this.luck = luck;
     }
 
-    public void verteidige () {}
 
-    public void useItems () {}
+    public void angreifen () {}
+
+    public void verteidigen () {}
+
 }
