@@ -58,8 +58,12 @@ public class Node {
         return null;
     }
 
-    public void findInOrderNeighbour (Node n) { //Array [In Order Vorgänger/ In Order Nachgänger]
+    public Node[] findInOrderNeighbour (Node n) { //Array [In Order Vorgänger/ In Order Nachgänger]
         Node vor = findInOrderVor(n);
         Node nach = findInOrderNach(n);
+        Node[] nArray = new Node[2]; //0 -> vor; 1 -> nach
+        nArray[0] = vor;
+        nArray[1] = nach;
+        return nArray;
     }
 }

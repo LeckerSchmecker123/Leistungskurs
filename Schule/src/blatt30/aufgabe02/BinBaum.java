@@ -53,4 +53,19 @@ public class BinBaum {
             }
         }
     }
+
+    public Node remove(int value) {
+        Node n = search(value);
+        //TODO: weiter fälle beachten
+        if (n.getLeft() == null || n.getRight() == null) {
+            n =  null;
+        } else if (n.getLeft() != null || n.getRight() == null) {
+
+        }
+        return n;//TODO:
+    }
+
+    public int depth () {
+
+    }
 }
