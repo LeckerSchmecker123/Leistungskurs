@@ -34,7 +34,7 @@ public class BinBaum {
     public void add(int value) {
         Node n = this.root;
 
-        if (search(value) == null) {
+        if (search(value) != null) {
             System.out.println("FEHLERRRRR: Wert bereits vorhanden");
         }
         while (true) {
@@ -65,7 +65,9 @@ public class BinBaum {
         return n;//TODO:
     }
 
-    public int depth () {
-
+    public int depth (BinBaum baum) {
+        int depth = 0;
+        Node n = baum.root;
+        return -1;
     }
 }
