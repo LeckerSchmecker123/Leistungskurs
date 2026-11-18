@@ -73,6 +73,9 @@ public class A2_klassisch
                 Color farbe = new Color(flaggen[0].getRGB(0, 0));
                 System.out.println("RGB-Wert des Pixels [0][0]: (" + farbe.getRed() + ", " + farbe.getGreen() + ", " + farbe.getBlue() + ")");
             }
+            //for (int j = 0; j < flaggen.length - 1; j++){
+            //    System.out.println("und ist " + flaggen[j].getWidth() + " x " + flaggen[j].getHeight() + " Pixel gross.");
+            //}
         } catch (Exception e) {
             e.printStackTrace();
         }

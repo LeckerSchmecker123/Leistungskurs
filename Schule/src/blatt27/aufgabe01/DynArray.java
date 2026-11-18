@@ -9,6 +9,7 @@ public class DynArray {
     private int[] arr;
     private int l;
 
+
     public DynArray(int l) {
         this.l = l;
         this.arr = new int[l];
